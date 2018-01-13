@@ -41,6 +41,7 @@ for modpack_name in modpack_log_list:
     with open("tmp/" + modpack_name, "r") as f:
         data = json.load(f)
 
+    print("正在检索：" + modpack_name)
     for manifest in data["files"]:
         url = "https://minecraft.curseforge.com/mc-mods/" + \
             str(manifest["projectID"])
@@ -52,6 +53,7 @@ for modpack_name in modpack_log_list:
         mod_url_name = re.findall(
             r"https://minecraft.curseforge.com/projects/(.*)", real_url)
 
+        print("正在检索：" + mod_url_name[0])
         # 设定一个变量，用来返回检验结果
         is_have = False
         for mod_list_name in log_list:
